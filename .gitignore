@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+
+/*/docker/
+/*/mysql/
+/*/data/
+/*/volume-data/
+
+/order-service/mysql_archive/
