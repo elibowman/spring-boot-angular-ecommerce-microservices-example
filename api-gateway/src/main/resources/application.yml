@@ -31,10 +31,24 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
   endpoint:
     health:
       show-details: always
+
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  observations:
+    key-values:
+      application: api-gateway
+
+  tracing:
+    sampling:
+      probability: 1.0
 
 #Resilience4j
 resilience4j:
