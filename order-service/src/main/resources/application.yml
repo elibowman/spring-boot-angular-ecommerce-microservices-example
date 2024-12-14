@@ -36,6 +36,7 @@ resilience4j:
     instances:
       inventory:
         register-health-indicator: true
+        event-consumer-buffer-size: 10
         sliding-window-type: COUNT_BASED
         sliding-window-size: 10
         failure-rate-threshold: 50
@@ -61,7 +62,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics, prometheus
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
 
   metrics:
     distribution:
@@ -76,3 +83,13 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+# Loki URL
+loki:
+  url: http://localhost:3100/loki/api/v1/push
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs

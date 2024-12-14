@@ -14,7 +14,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics, prometheus
+        include: '*'
 
   metrics:
     distribution:
@@ -29,3 +29,7 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+# Loki URL
+loki:
+  url: http://localhost:3100/loki/api/v1/push
